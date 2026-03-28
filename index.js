@@ -26,7 +26,11 @@ client.on('messageCreate', async (message) => {
 const res = await axios.get(
   `https://kanka.io/api/1.0/campaigns/${CAMPAIGN_ID}/characters`,
   {
-    headers: { Authorization: `Bearer ${KANKA_TOKEN}` }
+    headers: {
+      Authorization: `Bearer ${KANKA_TOKEN}`,
+      "User-Agent": "Mozilla/5.0",
+      "Accept": "application/json"
+    }
   }
 );
 
