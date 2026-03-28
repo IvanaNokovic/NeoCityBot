@@ -23,12 +23,12 @@ client.on('messageCreate', async (message) => {
   }
 
   try {
-    const res = await axios.get(
-      `https://kanka.io/api/1.0/campaigns/${CAMPAIGN_ID}/characters`,
-      {
-        headers: { Authorization: `Bearer ${KANKA_TOKEN}` }
-      }
-    );
+const res = await axios.get(
+  `https://kanka.io/api/1.0/campaigns/${CAMPAIGN_ID}/characters`,
+  {
+    headers: { Authorization: `Bearer ${KANKA_TOKEN}` }
+  }
+);
 
     const characters = res.data.data;
 
