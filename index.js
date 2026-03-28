@@ -22,36 +22,13 @@ client.on('messageCreate', async (message) => {
     return message.reply('Type a name, e.g. !npc monica');
   }
 
-  try {
-const res = await axios.get(
-  `https://kanka.io/api/1.0/campaigns/${CAMPAIGN_ID}/characters`,
-  {
-    headers: {
-      Authorization: `Bearer ${KANKA_TOKEN}`,
-      "User-Agent": "Mozilla/5.0",
-      "Accept": "application/json"
-    }
-  }
-);
-
-    const characters = res.data.data;
-
-    const match = characters.find(c =>
-      c.name.toLowerCase() === query
-    );
-
-    if (!match) {
-      return message.reply('Character not found.');
-    }
-
-    const link = `https://kanka.io/en-US/campaign/${CAMPAIGN_ID}/characters/${match.id}`;
-
-    message.channel.send(link);
-
-  } catch (err) {
-    console.error(err);
-    message.reply('Error contacting Kanka.');
-  }
+ try {
+  const link = `https://kanka.io/en-US/campaign/${CAMPAIGN_ID}/characters?search=${encodeURIComponent(query)}`;
+  message.channel.send(link);
+} catch (err) {
+  console.error(err);
+  message.reply('Error.');
+}
 });
 
 client.login(DISCORD_TOKEN);
