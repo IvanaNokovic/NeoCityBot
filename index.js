@@ -21,7 +21,7 @@ client.on('messageCreate', async (message) => {
   }
 
   try {
-    const link = `https://kanka.io/en-US/campaign/${CAMPAIGN_ID}/characters?search=${encodeURIComponent(query)}`;
+    const link = `https://app.kanka.io/w/${CAMPAIGN_ID}/characters?search=${encodeURIComponent(query)}`;
     message.channel.send(link);
   } catch (err) {
     console.error(err);
