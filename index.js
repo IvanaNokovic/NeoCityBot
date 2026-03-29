@@ -22,7 +22,15 @@ client.on('messageCreate', async (message) => {
 
   try {
     const link = `https://app.kanka.io/w/${CAMPAIGN_ID}/characters?search=${encodeURIComponent(query)}`;
-    message.channel.send(link);
+    message.channel.send({
+  embeds: [
+    {
+      title: `Search on Kanka: ${query}`,
+      url: `https://kanka.io/en-US/campaign/${CAMPAIGN_ID}/characters?search=${encodeURIComponent(query)}`,
+      description: `Click to view results for "${query}"`
+    }
+  ]
+});
   } catch (err) {
     console.error(err);
     message.reply('Error.');
