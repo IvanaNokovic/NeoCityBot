@@ -29,7 +29,7 @@ message.channel.send({
   embeds: [
     {
       title: `Search on Kanka: ${displayName}`,
-      url: `https://kanka.io/en-US/campaign/${CAMPAIGN_ID}/characters?search=${encodeURIComponent(query)}`,
+      url: `https://app.kanka.io/w/${CAMPAIGN_ID}/characters?search=${encodeURIComponent(query)}`,
       description: `Click to view results for "${displayName}"`,
       color: 0x5865F2
     }
