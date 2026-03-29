@@ -14,7 +14,8 @@ const CAMPAIGN_ID = process.env.CAMPAIGN_ID;
 client.on('messageCreate', async (message) => {
   if (!message.content.startsWith('!npc')) return;
 
-  const query = message.content.replace('!npc', '').trim().toLowerCase();
+  const rawQuery = message.content.replace('!npc', '').trim();
+  const query = rawQuery.toLowerCase();
 
   if (!query) {
     return message.reply('Type a name, e.g. !npc monica');
