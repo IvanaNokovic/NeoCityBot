@@ -23,12 +23,15 @@ client.on('messageCreate', async (message) => {
 
   try {
     const link = `https://app.kanka.io/w/${CAMPAIGN_ID}/characters?search=${encodeURIComponent(query)}`;
-    message.channel.send({
+const displayName = rawQuery.charAt(0).toUpperCase() + rawQuery.slice(1);
+
+message.channel.send({
   embeds: [
     {
-      title: `Search on Kanka: ${query}`,
+      title: `Search on Kanka: ${displayName}`,
       url: `https://kanka.io/en-US/campaign/${CAMPAIGN_ID}/characters?search=${encodeURIComponent(query)}`,
-      description: `Click to view results for "${query}"`
+      description: `Click to view results for "${displayName}"`,
+      color: 0x5865F2
     }
   ]
 });
