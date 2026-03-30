@@ -50,3 +50,35 @@ message.channel.send({
 });
 
 client.login(DISCORD_TOKEN);
+
+if (message.content.startsWith('!sheet')) {
+  const rawQuery = message.content.replace('!sheet', '').trim();
+  const query = rawQuery.toLowerCase();
+
+  if (!query) {
+    return message.reply('Type a name, e.g. !sheet theodor');
+  }
+
+  const link = sheets[query];
+
+  if (!link) {
+    return message.reply('Character sheet not found.');
+  }
+
+  const displayName = rawQuery
+    .toLowerCase()
+    .split(' ')
+    .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(' ');
+
+  message.channel.send({
+    embeds: [
+      {
+        title: `Character Sheet: ${displayName}`,
+        url: link,
+        description: `Click to open sheet`,
+        color: 0x57F287
+      }
+    ]
+  });
+}
