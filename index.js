@@ -11,6 +11,14 @@ const client = new Client({
 const DISCORD_TOKEN = process.env.DISCORD_TOKEN;
 const CAMPAIGN_ID = process.env.CAMPAIGN_ID;
 
+const sheets = {
+  theodor: "https://cdn-ugc.kanka.io/campaigns/182695/a1667468-08d0-45ce-81f3-9e3ef9969d4d.pdf", 
+  aamon: "",
+  varis: "https://cdn-ugc.kanka.io/campaigns/182695/a166571d-e566-47b5-a100-60591dcbcbbe.pdf",
+  mundi: "",
+  xia: "https://cdn-ugc.kanka.io/campaigns/182695/a16cb90b-c7a1-49ed-9deb-4694b80e6c9a.pdf",
+};
+
 client.on('messageCreate', async (message) => {
   if (!message.content.startsWith('!npc')) return;
 
