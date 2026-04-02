@@ -16,7 +16,7 @@ const sheets = {
   aamon: "",
   varis: "https://cdn-ugc.kanka.io/campaigns/182695/a166571d-e566-47b5-a100-60591dcbcbbe.pdf",
   mundi: "",
-  xia: "https://cdn-ugc.kanka.io/campaigns/182695/a16cb90b-c7a1-49ed-9deb-4694b80e6c9a.pdf",
+  xia: "https://cdn-ugc.kanka.io/campaigns/182695/a172ea90-99ba-4bee-8749-f71ec2bfe3d6.pdf",
 };
 
 client.on('messageCreate', async (message) => {
